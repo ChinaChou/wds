@@ -166,7 +166,7 @@ class UploadHandler(BaseHandler):
         except Exception as e:
             self.render('error.html',Error="请重新选择文件,{}".format(str(e)),user=self.session[self.session_id])
         else:
-            year,month,day,hour,minute,second,*_ = time.localtime()
+            year,month,day,hour,minute,second = time.strftime('%Y-%m-%d-%H-%M-%S').split('-')
             if env == 2:
                 current_war_dir = '{}/audit/{}/{}/{}'.format(options.upload_dir,year,month,day)
                 deploy_sql = "select servicename,webapps,releasename,ip from ops_PreProd where servicename='{}'".format(projectName)
@@ -178,7 +178,7 @@ class UploadHandler(BaseHandler):
 
             war_path = '{}/{}'.format(current_war_dir,warName)
             if os.path.isfile(war_path):
-                os.rename(war_path,'{}.{}'.format(war_path,str(year)+str(month)+str(day)+'_'+str(hour)+str(minute)+str(second)))
+                os.rename(war_path,'{}.{}'.format(war_path,year+month+day+'_'+hour+minute+second))
             try:
                 with open(war_path,'wb') as f:
                     f.write(warInfo['body'])
