@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>比搜益运维系统</title>
+    <style>
+        * {border:0;margin:0;padding:0;}
+        body {background-color:#F3F3F4;}
+        #mainBox {
+            width:300px;
+            margin:200px auto 0 auto;
+        }
+        #logo {
+            margin:0 auto 20px auto;
+            display:block;
+        }
+        h2 {
+            text-align: center;
+            color:#1ab394;
+        }
+        .inputBox {
+            display:block;
+            width:290px;
+            height:34px;
+            margin:10px auto;
+            border:1px solid #e5e6e7;
+            border-radius:2px;
+            font-size:18px;
+            padding-left:8px;
+        }
+        .loginBtn {
+            width:300px;
+            background-color:#1ab394;
+            color:white;
+            border:1px solid #1ab394;
+            padding:0;
+        }
+        small {
+            display: block;
+            text-align: center;
+            margin:20px auto;
+            color:#676a6c;
+            font-size:15px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="mainBox">
+        <img id="logo" src={{static_url('images/bisouyi.jpg')}}/>
+        <h2>Welcome to BsyDeploy</h2>
+        <form action="/login" method="post">
+            <input class="inputBox" type="text" name="username" placeholder="Username" autofocus required />
+            <input class="inputBox" type="password" name="password" placeholder="Password" required/>
+            <input class="inputBox loginBtn" type="submit" value="Login" />
+        </form>
+        <small>
+            <b>Copyright</b> Bisouyi.com Ltd. &copy 2016-2017
+        </small>
+    </div>
+</body>
+</html>

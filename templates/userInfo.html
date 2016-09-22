@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}个人信息{%end%}
+
+{% block style_area %}
+    #infoBox {
+        margin-left:20px;
+        margin-top:10px;
+    }
+    #infoBox p {
+        margin-bottom:20px;
+        font-size:20px;
+    }
+    #infoBox a {
+        text-decoration:none;
+        color:red
+        font-size:20px
+    }
+{% end %}
+{% block content %}
+<div id="infoBox">
+    <p>帐号:{{userInfo[0]['UserName']}}</p>
+    <p>全称:{{userInfo[0]['FullName']}}</p>
+    <p>部门:{{userInfo[0]['DepartmentName']}}</p>
+    <p>邮箱:{{userInfo[0]['Email']}}</p>
+    <p><a href="/modifyPass">修改密码</a></p>
+</div>
+{% end%}

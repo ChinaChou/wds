@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% end %}</title>
+    <style>
+        * {border:0;padding:0;margin:0;}
+        #navBar {
+            width:100%;
+            height:40px;
+            background-color:gray;
+        }
+        .nav_li {
+            float:left;
+            list-style:none;
+            line-height: 40px;
+            margin:auto 30px;
+            color:white;
+            font-size: 20px;
+        }
+        .nav_li a {
+            text-decoration: none;
+            color:white;
+        }
+        .nav_li a:hover{
+            color:red;
+        }
+        {% block style_area %} {% end %}
+    </style>
+    <script>
+
+        {% block script_area %} {% end %}
+    </script>
+
+</head>
+<body>
+    <div id="navBar">
+        <ul>
+            <li class="nav_li">欢迎:{{user}}</li>
+            <li class="nav_li"><a href='/upload'>发布服务</a></li>
+            <li class="nav_li"><a href='/downloads/'>下载线包</a></li>
+            <li class="nav_li"><a href='#'>服务录入</a></li>
+            <li class="nav_li"><a href='#'>发包日志</a></li>
+            <li class="nav_li"><a href='/userInfo'>个人信息</a></li>
+            <li class="nav_li"><a href='/logout'>注销</a></li>
+        </ul>
+    </div>
+    {% block content %}
+    {% end %}
+</body>
+</html>

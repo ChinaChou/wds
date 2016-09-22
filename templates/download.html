@@ -1,0 +1,41 @@
+{% extends 'base.html'%}
+
+{% block title%}
+下载线包
+{% end %}
+
+{% block style_area %}
+    #dl_ul li {
+        list-style:none;
+        margin-left:20px;
+        margin-top:10px;
+    }
+    #dl_ul a{
+        text-decoration:none;
+    }
+{% end %}
+
+
+{% block content %}
+        <ul id="dl_ul">
+            {% if pre_path %}
+                <li><img src={{static_url('images/folder.png')}}/><a href="/downloads/{{pre_path}}" > ..</a></li>
+            {% else %}
+                <li><img src={{static_url('images/folder.png')}}/><a href="/downloads/" > ..</a></li>
+            {% end %}
+            {% for d in content[1] %}
+                {% if sub_path %}
+                   <li><img src={{static_url('images/folder.png')}}/><a href="/downloads/{{sub_path}}/{{d}}" > {{d}}</a></li>
+                {% else %}
+                   <li><img src={{static_url('images/folder.png')}}/><a href="/downloads/{{d}}" > {{d}}</a></li>
+                {% end %}
+            {% end %}
+            {% for f in content[2] %}
+               {% if sub_path %}
+                   <li><a href="/static/downloads/{{sub_path}}/{{f}}">{{f}}</a></li>
+               {% else %}
+                   <li><a href="/static/downloads/{{f}}">{{f}}</a></li>
+               {% end %}
+            {% end %}
+        </ul>
+{% end %}

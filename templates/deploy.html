@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block style_area %}
+    select {width:190px;border:1px solid black;}
+    #fileInput {width:170px;border:1px solid black;}
+    #submitBtn {
+        width:270px;
+        background-color:red;
+        color:white;border:1px solid red;
+        border-radius:5px;
+        line-height:30px;
+        font-size:20px;
+}
+    form {margin-left:20px}
+    p {margin-top:20px}
+{% end %}
+
+{% block title %}
+发布服务
+{% end %}
+
+{% block content %}
+        <form action='/upload' method='post' enctype="multipart/form-data">
+            <p>
+                发部环境:
+                <select name="env">
+                    {% for item in deploy_env %}
+                        <option value={{item.get('id')}}>{{item.get('envname')}}</option>
+                    {% end %}
+                </select>
+            </p>
+            <p>
+                服务名称:
+                <select name="projectName">
+                    {% for item in deploy_projects %}
+                        <option values={{item.get('ProjectName')}}>{{item.get('ProjectName')}}</options>
+                    {% end %}
+                </select>
+            </p>
+            <p>
+                服务war包：
+                <input id="fileInput" type="file" name="warPackage" />
+            </p>
+            <p>
+                <input id="submitBtn" type="submit" value="发布"/>
+            </p>
+        </form>
+{% end %}
