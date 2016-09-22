@@ -11,15 +11,15 @@ import os,time,threading
 
 
 define('mysql_host',default='localhost',help='mysql-server address')
-define('mysql_user',default='bsydeploy',help='database user')
-define('mysql_password',default='T0AMc+pDzhb7y',help='database password')
+define('mysql_user',default='test1',help='database user')
+define('mysql_password',default='123456',help='database password')
 define('mysql_db',default='bsyops',help='default database')
 define('mysql_charset',default='utf8',help='mysql charset')
 define('mysql_cursorclass',default=pymysql.cursors.DictCursor)
 define('mysql_autocommit',default=True,help=('auto commit transaction or not'))
 define('upload_dir',default='{}'.format(os.path.join(os.path.dirname(__file__),'static/downloads')),help='file upload directory')
 define('ssh_user',default='gxzb',help='ssh and sftp login name')
-define('ssh_pkey',default='/home/gxzb/.ssh/id_rsa',help='ssh private key file')
+define('ssh_pkey',default='/home/zhoubao/.ssh/id_rsa',help='ssh private key file')
 
 class MyApp(Application):
     def __init__(self):
